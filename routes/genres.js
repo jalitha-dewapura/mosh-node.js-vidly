@@ -27,8 +27,8 @@ router.post('/', async (req,res) => {
     });
 
     try {
-        const result = await genre.save();
-        res.send(result);
+        await genre.save();
+        res.send(genre);
     }
     catch(ex) {
         for (let field in ex.errors)

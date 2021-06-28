@@ -61,5 +61,9 @@ router.post('/', async (req, res) => {
     res.send(rental);
 })
 
+router.delete('/:id', (req, res) => {
+    const rental = Rental.findOneAndRemove(req.params.id);
+    if(!rental) return res.status(404).send('The rental with the goven od is not found.');
+})
 
 module.exports = router;

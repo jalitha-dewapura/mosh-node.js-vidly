@@ -28,8 +28,8 @@ router.post('/', async (req,res) => {
     });
 
     try {
-        const result = await customer.save();
-        res.send(result);
+        await customer.save();
+        res.send(customer);
     }
     catch(ex) {
         for (let field in ex.errors)

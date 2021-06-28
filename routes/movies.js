@@ -36,8 +36,8 @@ router.post('/', async (req,res) => {
     });
 
     try {
-        const result = await movie.save();
-        res.send(result);
+        await movie.save();
+        res.send(movie);
     }
     catch(ex) {
         for (let field in ex.errors)
